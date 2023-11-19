@@ -3,7 +3,7 @@ import { LoaderArgs } from "@remix-run/node"
 export const loader = async (loaderInput: LoaderArgs) => {
 
     const pathname = loaderInput.params["*"];
-    const result = await import(`../app/json/${pathname}.json`); 
+    const result = await import(`../app/json/${pathname}.json`, {assert: {type: "json"}}); 
 
     
     return result;
